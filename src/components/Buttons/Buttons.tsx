@@ -1,22 +1,24 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Box, Button, ButtonOwnProps } from "@mui/material";
-import SendIcon from "@mui/icons-material/AccessAlarms";
 
 type ButtonsProps = {
-    color?: ButtonOwnProps["color"]
-}
+  /** The mui color */
+  color?: ButtonOwnProps["color"];
+  icon?: React.ReactNode;
+};
 
-function buttons({color}: ButtonsProps) {
+/** 20 Buttons in a Box*/
+function buttons({ color, icon }: ButtonsProps) {
   const [count, setCount] = useState(100);
   const handleClick = () => setCount((count) => count + 1);
   return (
-    <Box>
+    <Box sx={{ border: 1 }}>
       {[...Array(20).keys()].map(() => (
         <Button
           variant="outlined"
           color={color}
           onClick={handleClick}
-          startIcon={<SendIcon />}
+          startIcon={icon}
         >
           {count}
         </Button>

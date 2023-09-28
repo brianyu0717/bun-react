@@ -1,10 +1,11 @@
 import Grid from "@mui/material/Unstable_Grid2";
-import Buttons from "./buttons";
+import Buttons from "./components/Buttons/Buttons";
+import SendIcon from "@mui/icons-material/AccessAlarms";
 
 function App() {
   return (
     <Grid container>
-      <Grid md={12}><Buttons color="error"/></Grid>
+      <Grid md={12}><Buttons color="error" icon={<SendIcon/>}/></Grid>
       <Grid md={2}><Buttons color="info"/></Grid>
       <Grid md={8}><Buttons color="secondary"/></Grid>
       <Grid md={2}><Buttons color="success"/></Grid>
