@@ -8,6 +8,14 @@ Bun should be a drop in replacement for `npm` but much better, apparently.
 
 Such as `bun i <dep>` to install a dependency.
 
+# todo 
+
+* GH action to deploy storybook to GH pages
+* GH action to build and deploy main app to GH pages
+* Add redux and rtk + fetch from public api and mocked in sb
+* Add react router
+* Bun workspaces
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

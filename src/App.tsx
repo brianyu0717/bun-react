@@ -1,17 +1,12 @@
-import Grid from "@mui/material/Unstable_Grid2";
-import Buttons from "./components/Buttons/Buttons";
-import SendIcon from "@mui/icons-material/AccessAlarms";
+import { Grid } from "@mui/material";
+import TestPage from "./pages/TestPage";
+import ResponsiveAppBar from "./components/AppBar/AppBar";
 
-function App() {
+export default function App() {
   return (
     <Grid container>
-      <Grid md={12}><Buttons color="error" icon={<SendIcon/>}/></Grid>
-      <Grid md={2}><Buttons color="info"/></Grid>
-      <Grid md={8}><Buttons color="secondary"/></Grid>
-      <Grid md={2}><Buttons color="success"/></Grid>
-      <Grid md={12}><Buttons/></Grid>
+      <ResponsiveAppBar />
+      <TestPage />
     </Grid>
   );
 }
-
-export default App;

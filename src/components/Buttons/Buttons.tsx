@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Box, Button, ButtonOwnProps } from "@mui/material";
+import { Button, ButtonOwnProps } from "@mui/material";
+import _ from "lodash";
+import BorderedBox from "../BorderedBox/BorderedBox";
 
 type ButtonsProps = {
   /** The mui color */
@@ -11,19 +13,23 @@ type ButtonsProps = {
 function buttons({ color, icon }: ButtonsProps) {
   const [count, setCount] = useState(100);
   const handleClick = () => setCount((count) => count + 1);
+  const randomColour : typeof color = !icon
+    ? _.sample(["primary", "secondary", "success", "error", "info", "warning"])
+    : undefined;
   return (
-    <Box sx={{ border: 1 }}>
-      {[...Array(20).keys()].map(() => (
+    <BorderedBox>
+      {[...Array(20).keys()].map((i) => (
         <Button
           variant="outlined"
-          color={color}
+          color={color ? color : randomColour}
           onClick={handleClick}
           startIcon={icon}
+          key={i}
         >
           {count}
         </Button>
       ))}
-    </Box>
+    </BorderedBox>
   );
 }
 
