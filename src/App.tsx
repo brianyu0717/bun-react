@@ -1,6 +1,6 @@
-import { Grid } from "@mui/material";
-import TestPage from "./pages/TestPage";
+import Grid from "@mui/material/Grid";
 import ResponsiveAppBar from "./components/AppBar/AppBar";
+import TestPage from "./pages/TestPage";
 
 export default function App() {
   return (
