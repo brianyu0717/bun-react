@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         path: "testpage",
         element: <TestPage />,
       },
+      {
+        path: ":param",
+        element: <Index />
+      }
     ],
   },
 ]);

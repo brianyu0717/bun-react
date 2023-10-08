@@ -23,8 +23,9 @@ const Wrapped = () => {
 };
 
 export default function App() {
-
-  return <ReduxProvider store={store}>
-    <Wrapped />
-  </ReduxProvider>;
+  return (
+    <ReduxProvider store={store}>
+      <Wrapped />
+    </ReduxProvider>
+  );
 }

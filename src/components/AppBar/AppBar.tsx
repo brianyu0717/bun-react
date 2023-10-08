@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { toggleIsDebug } from "../../services/theme";
+import { toggleIsDebug, toggleIsLight } from "../../services/theme";
 import Avatar from "../Avatar/Avatar";
 
 const pages = ["About", "TestPage"];
@@ -46,9 +46,16 @@ function ResponsiveAppBar() {
   const handleThemeDebugChange = () => {
     dispatch(toggleIsDebug());
   }
+  const handleThemeLDChange = () => {
+    dispatch(toggleIsLight());
+  }
 
   const isDebugTheme = useAppSelector((state) => {
     return state.theme.isDebug
+  });
+
+  const isLightTheme = useAppSelector((state) => {
+    return state.theme.isLight
   });
 
   return (
@@ -174,13 +181,19 @@ function ResponsiveAppBar() {
                     to={setting}
                     key={setting}
                     textAlign="center"
+                    sx={{
+                      color: (theme) => theme.palette.primary.main
+                    }}
                   >
                     {setting}
                   </Typography>
                 </MenuItem>
               ))}
-              <MenuItem key="toggleDebugCss" onClick={handleThemeDebugChange}>
+              <MenuItem key="toggleDebugTheme" onClick={handleThemeDebugChange}>
                 <Typography>Debug: {isDebugTheme ? "Yes" : "No"}</Typography>
+              </MenuItem>
+              <MenuItem key="toggleLDMode" onClick={handleThemeLDChange}>
+                <Typography>Light: {isLightTheme ? "Yes" : "No"}</Typography>
               </MenuItem>
             </Menu>
           </Box>

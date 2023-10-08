@@ -4,7 +4,7 @@ import { ThemeState } from "./services/theme";
 const theme = ({ isLight, isDebug }: ThemeState) =>
   createTheme({
     palette: {
-      mode: isLight ? "light" : "light",
+      mode: isLight ? "light" : "dark",
     },
     typography: {
       fontFamily: ["monospace"].join(","),
