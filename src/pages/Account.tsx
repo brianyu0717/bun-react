@@ -6,15 +6,15 @@ export default function Account() {
     <>
       <h1>Account</h1>
       <h2>Update your data</h2>
-      <Grid2>
-        <Grid2>
+      <Grid2 spacing={1} container>
+        <Grid2 md={12}>
           <TextField label="Name"></TextField>
         </Grid2>
-        <Grid2>
+        <Grid2 md={12}>
           <TextField label="Email"></TextField>
         </Grid2>
-        <Grid2>
-          <Button>Submit</Button>
+        <Grid2 md={12}>
+          <Button variant="outlined">Submit</Button>
         </Grid2>
       </Grid2>
     </>
