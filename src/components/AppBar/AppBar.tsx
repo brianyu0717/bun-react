@@ -1,21 +1,23 @@
-import * as React from "react";
+import AdbIcon from "@mui/icons-material/Adb";
+import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import Avatar from "../Avatar/Avatar";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { toggleIsDebug } from "../../services/theme";
+import Avatar from "../Avatar/Avatar";
 
 const pages = ["About", "TestPage"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Account", "Register", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -39,6 +41,15 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const dispatch = useAppDispatch();
+
+  const handleThemeDebugChange = () => {
+    dispatch(toggleIsDebug());
+  }
+
+  const isDebugTheme = useAppSelector((state) => {
+    return state.theme.isDebug
+  });
 
   return (
     <AppBar position="static">
@@ -49,7 +60,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component={Link}
-            to='/'
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -59,7 +70,9 @@ function ResponsiveAppBar() {
               color: "inherit",
               textDecoration: "none",
             }}
-          >  LOGO         
+          >
+            {" "}
+            LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -156,9 +169,19 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography
+                    component={Link}
+                    to={setting}
+                    key={setting}
+                    textAlign="center"
+                  >
+                    {setting}
+                  </Typography>
                 </MenuItem>
               ))}
+              <MenuItem key="toggleDebugCss" onClick={handleThemeDebugChange}>
+                <Typography>Debug: {isDebugTheme ? "Yes" : "No"}</Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
