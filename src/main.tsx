@@ -7,6 +7,7 @@ import Account from "./pages/Account.tsx";
 import ErrorPage from "./pages/ErrorPage.tsx";
 import Index from "./pages/Index.tsx";
 import TestPage from "./pages/TestPage.tsx";
+import Register from "./pages/Register.tsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "testpage",
         element: <TestPage />,
+      },
+      {
+        path: "register",
+        element: <Register />,
       },
       {
         path: ":param",

@@ -1,7 +1,7 @@
-import { Avatar, Box } from "@mui/material";
-import deepOrange from "@mui/material/colors/deepOrange";
-import blue from "@mui/material/colors/blue";
+import { Avatar } from "@mui/material";
 import amber from "@mui/material/colors/amber";
+import blue from "@mui/material/colors/blue";
+import deepOrange from "@mui/material/colors/deepOrange";
 import purple from "@mui/material/colors/purple";
 import BorderedBox from "../BorderedBox/BorderedBox";
 
